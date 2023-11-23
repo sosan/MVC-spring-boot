@@ -1,0 +1,103 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light  container">
+        <div class="container-fluid">
+            <a class="navbar-brand fst-italic" href="/">
+                <img src="/img/libro.svg" alt="" width="70" height="70">
+                BIBLIOTECA
+            </a>
+            <button class="navbar-toggler bg-warning shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-sm-end "  id="navbarNavAltMarkup">
+                <ul class="navbar-nav"> 
+                    <li class="dropdown"> 
+                        <a class="nav-link dropdown-toggle"  th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Libros
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="nav-item">
+                                <a class="dropdown-item" sec:authorize="hasRole('ADMIN')" th:href="@{/libro/registrar}">Subir Nuevos Libros</a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li class="nav-item active">
+                                <a class="dropdown-item"  th:href="@{/libro/lista}">Lista de Libros</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown"> 
+                        <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Autores
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                            <li class="nav-item">
+                                <a class="dropdown-item"  sec:authorize="hasRole('ADMIN')" th:href="@{/autor/registrar}">Gestionar Autores</a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+
+                            <li class="nav-item">
+                                <a class="dropdown-item" th:href="@{/autor/lista}">Lista de  Autores</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"> 
+                        <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Editoriales
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                            <li class="nav-item">
+                                <a class="dropdown-item" sec:authorize="hasRole('ADMIN')" th:href="@{/editorial/registrar}">Gestionar Editoriales</a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+
+                            <li class="nav-item">
+                                <a class="dropdown-item" th:href="@{/editorial/lista}">Lista de Editoriales </a>
+                            </li>
+                        </ul>
+
+                    <li class="dropdown"> 
+                        <a class="nav-link dropdown-toggle" th:if="${session.usuariosession != null}" sec:authorize="hasRole('ADMIN')" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Usuarios
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                            <li class="nav-item">
+                                <a class="dropdown-item"  sec:authorize="hasRole('ADMIN')" th:href="@{/admin/usuarios}">Lista de  Usuarios</a>
+                            </li>
+                        </ul>
+                    </li>
+                    </li>
+                    <li class="dropdown"> 
+                        <a class="nav-link dropdown-toggle"  th:if="${session.usuariosession != null}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Perfil
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" th:href="@{/perfil}">Editar Perfil</a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " th:if="${session.usuariosession == null}"  href="/registrar" id="navbarDropdown" role="button" aria-expanded="false">
+                            Registrate
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " th:if="${session.usuariosession == null}"  href="/login" id="navbarDropdown" role="button" aria-expanded="false">
+                            LOGIN
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
