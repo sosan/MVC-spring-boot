@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="/fragments/head ::  head "></head>
+    <body>
+
+        <header  th:replace="~{/fragments/header :: header}"></header>
+        <div class="container justify-content-start">
+
+            <div class="position-relative">
+                <img src="/img/errorcel.jpg" class="w-100 d-lg-none" alt="CEL">
+                <img src="/img/ERROR.jpg" class="w-100 d-none d-lg-block" alt="FONDO">
+
+                <div class="position-absolute top-50 start-50 translate-middle text-start text-white">
+                    <a class="navbar-brand fs-1 text-dark text-uppercase fw-bold" th:text="'Error ' + ${codigo}"></a>
+                    <p class="tituloLibros fs-2 text-dark text-uppercase" th:text="${mensaje}"></p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <section class="text-center container">
+            <div class="row mt-3">
+                <div class="divVolver">
+                    <a th:href="@{/}" class="btn btn-warning  my-2">Volver</a>
+                </div>
+            </div>
+        </section>
+
+        <footer th:replace="~{/fragments/footer :: footer}"></footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

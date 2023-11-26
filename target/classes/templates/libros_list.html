@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html   xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="/fragments/head ::  head "></head>
+    <body>
+        <header  th:replace="~{/fragments/header :: header}"></header>
+        <section class="container py-4" >
+
+            <div class="table-responsive ">
+
+                <table class="  table table-bordered table-hover">
+                    <h3 class="text-center py-3">Lista del Libros</h3>
+                    <caption>Lista de Libros</caption>
+                    <thead>
+                        <tr class="table-warning">
+                            <th  scope="col">Id</th>
+                            <th  scope="col">Titulo</th>
+                            <th scope="col">Ejemplares</th>
+                            <th scope="col">Autor</th>
+                            <th scope="col">Editorial</th>
+                            <th scope="col" sec:authorize="hasRole('ADMIN')" >Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody th:each="libro : ${libros}"> 
+                        <tr>
+                            <td scope="row" th:text="${libro.isbm}"></td>
+                            <td  scope="row" th:text="${libro.titulo}"></td>
+                            <td  scope="row" th:text="${libro.ejemplares}"></td>
+                            <td  scope="row" th:text="${libro.autor.nombre}"></td>
+                            <td  scope="row" th:text="${libro.editorial.nombre}"></td>
+                            <td>    
+                                <a class="text-decoration-none text-warning" sec:authorize="hasRole('ADMIN')" th:href="@{/libro/modificar/${libro.isbn}}">
+                                    <i class="fas fa-feather-alt"></i> Modificar
+                                </a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="py-3 px-5 text-center container">
+            <div class="row py-lg-3">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <a th:href="@{/inicio}" class="btn btn-warning my-2">Volver</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <footer th:replace="~{/fragments/footer :: footer}"></footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
+
+    </body>
+</html>

@@ -1,0 +1,7 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+.navbar {
+    z-index: 1000; /* Valor alto para asegurar que esté en la parte superior */
+}
