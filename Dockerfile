@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine3.14
+FROM openjdk:8-jdk-alpine
 COPY target/biblioteca-0.0.1-SNAPSHOT.jar /app.jar
 EXPOSE 8080
 CMD ["java", "-jar", "/app.jar"]
