@@ -1,0 +1,5 @@
+El proyecto, una aplicación completa basada en el patrón de arquitectura MVC (Modelo-Vista-Controlador) con Java, Spring Boot y Spring Security en el backend, utiliza MySQL como base de datos. En el frontend, he incorporado Thymeleaf y Bootstrap para ofrecer una buena experiencia de usuario .Permite a los usuarios crear cuentas y registrarse para acceder a listas de libros, autores y editoriales.
+
+Como usuario, inicialmente, solo tendrás acceso a las listas de todas esas cosas. Sin embargo, una vez que te conviertes en administrador, habilitado por el administrador principal, se te otorgan acciones adicionales. Esto incluye la capacidad de modificar información relacionada con libros, autores, editoriales y usuarios.
+
+Además de estas acciones, el administrador también disfrutará de acceso a listas anteriormente mencionadas. Este acceso exclusivo capacita al administrador para gestionar y supervisar el contenido. Este enfoque representa la esencia del patrón MVC al organizar los componentes de manera eficiente, separando la lógica de negocio, la presentación y el control.
