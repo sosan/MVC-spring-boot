@@ -1,18 +1,31 @@
 Biblioteca
-El proyecto Biblioteca es una aplicación completa basada en el patrón de arquitectura MVC (Modelo-Vista-Controlador) que utiliza tecnologías como Java, Spring Boot y Spring Security en el backend. La base de datos se gestiona con MySQL, proporcionando una solución robusta para el manejo de datos.
+El proyecto Biblioteca es una aplicación completa basada en el patrón de arquitectura MVC (Modelo-Vista-Controlador), que utiliza Java, Spring Boot y Spring Security en el backend. La base de datos se gestiona con MySQL, proporcionando una solución robusta para el manejo de datos.
 
-Frontend y Backend
-En el frontend, se han incorporado tecnologías como Thymeleaf y Bootstrap para asegurar una experiencia de usuario intuitiva y visualmente atractiva, asegurando que la interfaz sea amigable y fácil de usar en dispositivos móviles y de escritorio.
-
+Tecnologías Utilizadas
+Backend: Java, Spring Boot, Spring Security
+Frontend: Thymeleaf, Bootstrap
+Base de Datos: MySQL
 Funcionalidades del Proyecto
-La aplicación permite a los usuarios registrarse y crear cuentas para acceder a listas de libros, autores y editoriales. Los usuarios, en su rol inicial, tienen acceso solo a la visualización de estas listas. Sin embargo, al convertirse en administradores, una vez habilitados por el administrador principal, los usuarios adquieren permisos adicionales que les permiten modificar información relacionada con libros, autores, editoriales y usuarios.
+La aplicación permite a los usuarios registrarse y crear cuentas para acceder a listas de libros, autores y editoriales. Los usuarios, en su rol inicial, solo tienen acceso a la visualización de estas listas.
 
 Roles de Usuario
-Usuario común: Solo puede visualizar las listas de libros, autores y editoriales.
-Administrador: Además de tener acceso a las listas, tiene permisos para gestionar y modificar el contenido relacionado con libros, autores, editoriales y usuarios. Esta capacidad de gestión le otorga un control más profundo sobre el sistema.
-Arquitectura
-Este enfoque sigue de cerca los principios del patrón MVC, donde:
+Usuario común:
 
-Modelo: Representa la lógica de negocio y las interacciones con la base de datos (MySQL).
-Vista: Gestiona la presentación de los datos utilizando Thymeleaf para generar las vistas dinámicas.
-Controlador: Se encarga de recibir las peticiones del usuario, interactuar con el modelo y devolver la vista adecuada.
+Solo puede visualizar las listas de libros, autores y editoriales.
+Administrador:
+
+Además de tener acceso a las listas mencionadas, el administrador tiene permisos adicionales para modificar información sobre libros, autores, editoriales y usuarios.
+El administrador tiene acceso completo al sistema y puede gestionar el contenido de manera eficiente.
+Flujo de Administración
+Un usuario solo puede convertirse en administrador cuando es habilitado por el administrador principal. Este enfoque asegura que el control de los permisos esté centralizado y bajo la supervisión de los administradores.
+
+Arquitectura
+Este proyecto sigue el patrón de arquitectura MVC, que se estructura de la siguiente manera:
+
+Modelo:
+Representa la lógica de negocio y las interacciones con la base de datos (MySQL).
+Vista:
+Se encarga de la presentación de los datos al usuario utilizando Thymeleaf para generar las vistas dinámicas.
+Controlador:
+Recibe las peticiones del usuario, interactúa con el modelo y devuelve la vista correspondiente.
+El patrón MVC permite una organización eficiente del código, separando las responsabilidades de negocio, presentación y control. Esto facilita la escalabilidad, el mantenimiento y la claridad del sistema.
