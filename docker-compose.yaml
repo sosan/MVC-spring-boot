@@ -1,0 +1,35 @@
+services:
+  backend:
+    build: 
+      context: .
+    container_name: backend
+    ports:
+      - 8080:8080
+    networks:
+      - testing
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: biblioteca
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: clave
+    ports:
+      - 3306:3306
+    volumes:
+      - ./data:/var/lib/mysql
+    networks:
+      - testing
+    healthcheck:
+      test: ["CMD", "mysql", "-h", "localhost", "-u", "root", "-proot", "-e", "SELECT 1;"]
+      interval: 5s
+      timeout: 15s
+      retries: 5
+
+networks:
+  testing:
